@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Authorization
 gem 'devise'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
