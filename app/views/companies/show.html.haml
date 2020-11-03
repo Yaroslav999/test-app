@@ -2,6 +2,8 @@
   %h2= @company.name
   %p= @company.country_name
 
+  %p= link_to 'Back', companies_path, class: 'btn btn-info'
+
   .row
     %table.table
       %thead
