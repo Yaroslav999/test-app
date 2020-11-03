@@ -1,0 +1,18 @@
+.container
+  %h2= @company.name
+  %p= @company.country_name
+
+  .row
+    %table.table
+      %thead
+        %tr
+          %th{scope: 'col'} #
+          %th{scope: 'col'} Cash
+          %th{scope: 'col'} Cash in
+          %th{scope: 'col'} Cash out
+      %tbody
+        %tr
+          %th 1
+          %th Cash
+          %th Cash in
+          %th Cash out

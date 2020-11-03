@@ -1,0 +1,12 @@
+= form_for @company, class: 'form-group' do |f|
+  .field.form-group
+    = f.label :name, class: 'col-form-label'
+    = f.text_field :name, class: 'form-text form-control'
+
+  .field.form-group
+    = f.label :country_code, class: 'col-form-label'
+    = f.country_select :country, {priority: %w(US CA)}, prompt: 'Please select a country'
+
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary'
+

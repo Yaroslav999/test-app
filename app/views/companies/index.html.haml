@@ -1,0 +1,22 @@
+.container
+  = link_to 'Log out', destroy_user_session_path, method: "delete"
+  %h1.page-header Listing your companies
+  - if current_user.student?
+    = link_to 'Create company', new_company_path
+  .row
+    %table.table
+      %thead
+        %tr
+          %th{scope: 'col'} #
+          %th{scope: 'col'} Name
+          %th{scope: 'col'} Country
+          %th{scope: 'col'}
+      %tbody
+        - @companies.each_with_index do |company, index|
+          %tr
+            %th{scope: 'row'}= index + 1
+            %th= link_to "#{company.name}", company_path(company)
+            %th= company.country_name
+            %th= link_to 'Update', edit_company_path(company), class: 'btn btn-success'
+
+

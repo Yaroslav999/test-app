@@ -26,6 +26,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 
+# Gem for views
+gem "haml-rails"
+
+# Country selecting
+gem 'country_select'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -33,7 +38,7 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'rubocop', require: false
 
 # For views
-gem 'bootstrap', '~> 4.5.0'
+gem 'bootstrap'
 gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
