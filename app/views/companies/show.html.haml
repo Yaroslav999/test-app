@@ -3,6 +3,7 @@
   %p= @company.country_name
 
   %p= link_to 'Back', companies_path, class: 'btn btn-info'
+  %p= "Student: #{@company.user_name}"
 
   .row
     %table.table
