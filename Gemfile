@@ -27,7 +27,7 @@ gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 # Gem for views
-gem "haml-rails"
+gem 'haml-rails'
 
 # Country selecting
 gem 'country_select'

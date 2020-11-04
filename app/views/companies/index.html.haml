@@ -1,8 +1,8 @@
 .container
-  = link_to 'Log out', destroy_user_session_path, method: "delete"
   %h1.page-header Listing your companies
+  = link_to 'Update user detail', edit_user_path(current_user), class: 'btn btn-info'
   - if current_user.student?
-    = link_to 'Create company', new_company_path
+    = link_to 'Create company', new_company_path, class: 'btn btn-info'
   .row
     %table.table
       %thead
