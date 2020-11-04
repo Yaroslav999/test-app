@@ -49,6 +49,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # For tests use rspec
   gem 'rspec-rails'
+  gem 'factory_bot'
 end
 
 group :development do
