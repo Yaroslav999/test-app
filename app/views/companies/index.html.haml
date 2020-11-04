@@ -17,6 +17,7 @@
             %th{scope: 'row'}= index + 1
             %th= link_to "#{company.name}", company_path(company)
             %th= company.country_name
-            %th= link_to 'Update', edit_company_path(company), class: 'btn btn-success'
+            - if current_user.student?
+              %th= link_to 'Update', edit_company_path(company), class: 'btn btn-success'
 
 

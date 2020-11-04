@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   before_action :find_company, only: %i[show edit update destroy]
 
   def index
-    @companies = current_user.companies
+    @companies = current_user.student? ? current_user.companies : Company.all
   end
 
   def new

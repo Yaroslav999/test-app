@@ -12,9 +12,7 @@
   <body>
     <%- if current_user %>
       <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <%= button_to 'Log out', destroy_user_session_path, method: 'delete', class: 'btn' %>
-        </form>
+        <%= button_to 'Log out', destroy_user_session_path, method: 'delete', class: 'btn' %>
       </nav>
     <% end %>
     <p class="notice"><%= notice %></p>
