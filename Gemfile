@@ -37,6 +37,9 @@ gem 'country_select'
 # Use linter
 gem 'rubocop', require: false
 
+# For money system of app
+gem 'money-rails'
+
 # For views
 gem 'bootstrap'
 gem 'jquery-rails'
