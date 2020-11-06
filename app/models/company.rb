@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
-  monetize :initial_cash_cents
+  monetize :initial_cash_cents, numericality: {greater_than: 0}
 
   belongs_to :user
 
