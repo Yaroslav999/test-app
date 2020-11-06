@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
+  monetize :initial_cash_cents
+
   belongs_to :user
 
   def country_name

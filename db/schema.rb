@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_115727) do
+ActiveRecord::Schema.define(version: 2020_11_06_142718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_115727) do
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "country", null: false
+    t.integer "initial_cash_cents", default: 0, null: false
+    t.string "initial_cash_currency", default: "USD", null: false
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
