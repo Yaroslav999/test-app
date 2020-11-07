@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CashManagementsController < ApplicationController
-  before_action :find_company, only: %i[edit create update destroy]
+  before_action :find_company, only: %i[new edit create update destroy]
   before_action :find_cash_management, only: %i[edit update destroy]
 
   def new

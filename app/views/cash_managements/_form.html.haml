@@ -1,6 +1,6 @@
 %p= link_to 'Back', company_path(@company), class: 'btn btn-info'
 
-= form_for @cash_management, url: company_cash_management_path(@company, @cash_management), class: 'form-group' do |f|
+= form_for [@company, @cash_management], class: 'form-group' do |f|
   .field.form-group
     = f.label :year, class: 'col-form-label'
     = f.text_field :year, class: 'form-text form-control'
