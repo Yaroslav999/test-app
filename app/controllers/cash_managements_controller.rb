@@ -41,7 +41,7 @@ class CashManagementsController < ApplicationController
     @date = Date.today
     @months = []
     (0..23).each do |m|
-      month_value = @date.next_month(m).strftime("%B %Y")
+      month_value = @date.next_month(m).strftime('%B %Y')
       @months << [month_value, month_value]
     end
   end
