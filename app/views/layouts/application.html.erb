@@ -15,8 +15,8 @@
         <%= button_to 'Log out', destroy_user_session_path, method: 'delete', class: 'btn' %>
       </nav>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert-primary"><%= notice %></p>
+    <p class="alert-danger"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
