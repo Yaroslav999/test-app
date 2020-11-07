@@ -3,6 +3,7 @@
 class CashManagementsController < ApplicationController
   before_action :find_company, only: %i[new edit create update destroy]
   before_action :find_cash_management, only: %i[edit update destroy]
+  before_action :set_months, only: %i[new edit create update]
 
   def new
     @cash_management = @company.cash_managements.new
@@ -36,8 +37,19 @@ class CashManagementsController < ApplicationController
 
   private
 
+  def set_months
+    @date = Date.today
+    @months = []
+    (0..23).each do |m|
+      month_value = @date.next_month(m).strftime("%B %Y")
+      @months << [month_value, month_value]
+    end
+  end
+
   def cash_params
-    params.require(:cash_management).permit(:year, :month, :cash_in, :cash_out)
+    permit_params = params.require(:cash_management).permit(:month, :cash_in, :cash_out)
+    month_params = permit_params.delete(:month).split(' ')
+    permit_params.merge({ month: month_params.first, year: month_params.last })
   end
 
   def find_cash_management
