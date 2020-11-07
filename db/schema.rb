@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2020_11_07_100459) do
     t.bigint "company_id", null: false
     t.string "month"
     t.string "year"
-    t.money "cash_in", scale: 2
-    t.money "cash_out", scale: 2
+    t.integer "cash_in_cents", default: 0, null: false
+    t.string "cash_in_currency", default: "USD", null: false
+    t.integer "cash_out_cents", default: 0, null: false
+    t.string "cash_out_currency", default: "USD", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_cash_managements_on_company_id"

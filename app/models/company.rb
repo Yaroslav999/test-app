@@ -3,6 +3,7 @@
 class Company < ApplicationRecord
   monetize :initial_cash_cents, numericality: { greater_than: 0 }
 
+  has_many :cash_managements
   belongs_to :user
 
   def country_name

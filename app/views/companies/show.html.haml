@@ -4,19 +4,27 @@
   %p= "Initial cash: #{@company.initial_cash}"
   %p= "Student: #{@company.user_name}"
 
+  %p= link_to 'Add new cash info', new_company_cash_management_path(@company), class: 'btn btn-info'
   %p= link_to 'Back', companies_path, class: 'btn btn-info'
 
   .row
     %table.table
       %thead
         %tr
-          %th{scope: 'col'} #
-          %th{scope: 'col'} Cash
+          %th{scope: 'col'} Year
+          %th{scope: 'col'} Month
           %th{scope: 'col'} Cash in
           %th{scope: 'col'} Cash out
+          %th{scope: 'col'}
+          %th{scope: 'col'}
       %tbody
         %tr
-          %th 1
-          %th Cash
-          %th Cash in
-          %th Cash out
+          - @company.cash_managements.each do |cash|
+            %th{scope: 'row'}= cash.year
+            %th= cash.month
+            %th= cash.cash_in
+            %th= cash.cash_out
+            %th= link_to 'Update', edit_company_cash_management_path(@company, cash), class: 'btn btn-info'
+            %th= link_to 'Delete', company_cash_management_path(@company, cash), method: :delete,class: 'btn btn-danger'
+
+
