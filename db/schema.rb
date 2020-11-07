@@ -10,15 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_142718) do
+ActiveRecord::Schema.define(version: 2020_11_07_100459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cash_managements", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "month"
+    t.string "year"
+    t.money "cash_in", scale: 2
+    t.money "cash_out", scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_cash_managements_on_company_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "country", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "initial_cash_cents", default: 0, null: false
     t.string "initial_cash_currency", default: "USD", null: false
     t.index ["user_id"], name: "index_companies_on_user_id"
@@ -39,5 +52,6 @@ ActiveRecord::Schema.define(version: 2020_11_06_142718) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cash_managements", "companies"
   add_foreign_key "companies", "users"
 end
