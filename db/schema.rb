@@ -17,14 +17,15 @@ ActiveRecord::Schema.define(version: 2020_11_07_100459) do
 
   create_table "cash_managements", force: :cascade do |t|
     t.bigint "company_id", null: false
-    t.string "month"
-    t.string "year"
+    t.string "month", null: false
+    t.string "year", null: false
     t.integer "cash_in_cents", default: 0, null: false
     t.string "cash_in_currency", default: "USD", null: false
     t.integer "cash_out_cents", default: 0, null: false
     t.string "cash_out_currency", default: "USD", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id", "month", "year"], name: "index_cash_managements_on_company_id_and_month_and_year", unique: true
     t.index ["company_id"], name: "index_cash_managements_on_company_id"
   end
 
