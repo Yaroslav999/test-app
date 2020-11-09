@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  authorize_error: 'Not a student'

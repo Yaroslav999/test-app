@@ -2,7 +2,7 @@
 
 class CompaniesController < ApplicationController
   before_action :find_company, only: %i[show edit update destroy]
-  before_action :student?, only: %i[create update destroy]
+  before_action :auth_student!, only: %i[create update destroy]
 
   def index
     @companies = current_user.student? ? current_user.companies : Company.all

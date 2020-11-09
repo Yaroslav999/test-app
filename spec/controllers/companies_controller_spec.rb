@@ -42,15 +42,17 @@ RSpec.describe CompaniesController, type: :controller do
     login_teacher
 
     it 'should redirect to root path' do
-      post :create, params: { company: { name: 'name', initial_cash: 100, country: 'ENG'} }
-      response.should redirect_to(root_path)
+      expect do
+        post :create, params: { company: { name: 'name', initial_cash: 100, country: 'ENG'} }
+      end.to raise_error
     end
 
     it 'should redirect to root path' do
-      put :update, params: { id: company.to_param, company: { name: 'new name' } }
+      expect do
+        put :update, params: { id: company.to_param, company: { name: 'new name' } }
+      end.to raise_error
       company.reload
       expect(company.name).to eq('test')
-      response.should redirect_to(root_path)
     end
   end
 end

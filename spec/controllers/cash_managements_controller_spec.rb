@@ -37,18 +37,20 @@ RSpec.describe CashManagementsController, type: :controller do
     login_teacher
 
     it 'should redirect to root_path' do
-      post :create, params: { company_id: company.id,
-                              cash_management: { cash_in: 10, cash_out: 10,
-                                                 month: 'November', year: '2020', company: company } }
-      response.should redirect_to(root_path)
+      expect do
+        post :create, params: { company_id: company.id,
+                                cash_management: { cash_in: 10, cash_out: 10,
+                                                   month: 'November', year: '2020', company: company } }
+      end.to raise_error
     end
 
     it 'should put update' do
-      put :update, params: { company_id: company.id, id: cash_management.to_param,
-                             cash_management: { month: 'December' } }
+      expect do
+        put :update, params: { company_id: company.id, id: cash_management.to_param,
+                               cash_management: { month: 'December' } }
+      end.to raise_error
       cash_management.reload
       expect(cash_management.month).to eq('November')
-      response.should redirect_to(root_path)
     end
   end
 end

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def student?
-    redirect_to root_path unless current_user.student?
+  def auth_student!
+    raise I18n.t('authorize_error') unless current_user.student?
   end
 end

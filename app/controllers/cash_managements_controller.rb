@@ -3,7 +3,7 @@
 class CashManagementsController < ApplicationController
   before_action :find_company, only: %i[new edit create update destroy]
   before_action :find_cash_management, only: %i[edit update destroy]
-  before_action :student?, only: %i[create update destroy]
+  before_action :auth_student!, only: %i[create update destroy]
 
   def new
     @cash_management = @company.cash_managements.new
