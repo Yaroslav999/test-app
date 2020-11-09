@@ -7,4 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :companies, dependent: :delete_all
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

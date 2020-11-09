@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
     additional_params = %i[role first_name last_name]
     devise_parameter_sanitizer.permit(:sign_up, keys: additional_params)
   end
+
+  private
+
+  def student?
+    redirect_to root_path unless current_user.student?
+  end
 end

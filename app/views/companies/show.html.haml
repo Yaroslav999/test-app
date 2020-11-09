@@ -2,7 +2,7 @@
   %h2= "Company name: #{@company.name}"
   %p= "Country: #{@company.country_name}"
   %p= "Initial cash: #{@company.initial_cash}"
-  %p= "Student: #{@company.user_name}"
+  %p= "Student: #{@company.user.full_name}"
 
   %p= link_to 'Add new cash info', new_company_cash_management_path(@company), class: 'btn btn-info'
   %p= link_to 'Back', companies_path, class: 'btn btn-info'

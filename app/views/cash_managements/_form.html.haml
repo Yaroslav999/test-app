@@ -3,7 +3,7 @@
 = form_for [@company, @cash_management], class: 'form-group' do |f|
   .field.form-group
     = f.label :month, class: 'col-form-label'
-    = f.select :month, options_for_select(@months), {}, class: 'form-control'
+    = f.select :month, options_for_select(months_for_company(@company)), {}, class: 'form-control'
 
   .field.form-group
     = f.label :cash_in, class: 'col-form-label'
