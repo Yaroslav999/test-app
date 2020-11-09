@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CompaniesController, type: :controller do
   login_user
-  let(:company) { subject.current_user.companies.create(name: 'test', country: 'ENG') }
+  let(:company) { subject.current_user.companies.create(name: 'test', initial_cash_cents: 100, country: 'ENG') }
 
   it 'should have a current_user' do
     expect(subject.current_user).to_not eq(nil)
@@ -31,9 +31,8 @@ RSpec.describe CompaniesController, type: :controller do
   end
 
   it 'should post create' do
-    post :create, params: { company: { name: 'name', country: 'ENG'} }
     expect {
-      post :create, params: { company: { name: 'name', country: 'ENG'} }
+      post :create, params: { company: { name: 'name', initial_cash: 100, country: 'ENG'} }
     }.to change(Company, :count).by(+1)
   end
 end

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   login_user
-  let(:company) { subject.current_user.companies.create(name: 'test', country: 'ENG') }
+  let(:company) { subject.current_user.companies.create(name: 'test', country: 'ENG',
+                                                        initial_cash_cents: 100) }
 
   it 'should have a current_user' do
     expect(subject.current_user).to_not eq(nil)

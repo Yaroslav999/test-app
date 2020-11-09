@@ -22,6 +22,7 @@ RSpec.describe Company, type: :model do
 
   it "is not valid with empty email" do
     expect(subject.new(country: 'ENG',
+                       initial_cash_cents: 100,
                        name: 'test',
                        user: User.create(password: 'test1234'))).to be_valid
   end
