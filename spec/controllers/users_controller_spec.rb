@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  login_user
+  login_student
   let(:company) { subject.current_user.companies.create(name: 'test', country: 'ENG',
                                                         initial_cash_cents: 100) }
 
