@@ -51,3 +51,4 @@ yarn-debug.log*
 !/tmp/.keep
 
 /public/packs
+/public/uploads

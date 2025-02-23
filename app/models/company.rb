@@ -2,6 +2,7 @@
 
 class Company < ApplicationRecord
   monetize :initial_cash_cents, numericality: { greater_than: 0 }
+  mount_uploader :logo, LogoUploader
 
   has_many :cash_managements, dependent: :delete_all
   belongs_to :user
