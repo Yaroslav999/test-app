@@ -17,6 +17,9 @@
     <% end %>
     <p class="alert-primary"><%= notice %></p>
     <p class="alert-danger"><%= alert %></p>
+    <div id="breadcrumbs">
+      <%= breadcrumbs separator: ' > ' %>
+    </div>
     <%= yield %>
   </body>
 </html>

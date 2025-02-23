@@ -5,7 +5,9 @@ class CompaniesController < ApplicationController
   before_action :auth_student!, only: %i[create update destroy]
 
   def index
-    @companies = current_user.student? ? current_user.companies : Company.all
+    scope = current_user.student? ? current_user.companies : Company.all
+
+    @companies = scope.page(params[:page]).per(10)
   end
 
   def new

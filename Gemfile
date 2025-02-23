@@ -44,6 +44,12 @@ gem 'money-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# breadcrumbs
+gem 'gretel'
+
+# pagination
+gem 'kaminari'
+
 # For views
 gem 'bootstrap'
 gem 'jquery-rails'
