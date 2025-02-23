@@ -40,6 +40,10 @@ gem 'rubocop', require: false
 # For money system of app
 gem 'money-rails'
 
+#image processing
+gem 'carrierwave'
+gem 'mini_magick'
+
 # For views
 gem 'bootstrap'
 gem 'jquery-rails'
