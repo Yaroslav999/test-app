@@ -39,4 +39,11 @@ RSpec.describe CashManagement, type: :model do
     expect(subject.new(cash_in_cents: 10, cash_out_cents: 10,
                        month: 'November', year: '2020', company: company)).to be_valid
   end
+
+  it "check `total_cash` value using stub" do
+    cash_management = build(:cash_management, company: company)
+    allow(cash_management).to receive(:cash_in).and_return(10_000)
+
+    expect(cash_management.cash_in).to eq(10_000)
+  end
 end
