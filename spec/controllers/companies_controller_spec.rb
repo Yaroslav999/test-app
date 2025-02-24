@@ -55,4 +55,21 @@ RSpec.describe CompaniesController, type: :controller do
       expect(company.name).to eq('test')
     end
   end
+
+  describe 'POST #create' do
+    context 'with valid params' do
+      it 'creates a new Company and redirects to the company' do
+        user = create(:user)
+        sign_in user
+
+        company = build(:company)
+        allow(Company).to receive(:new).with('name' => 'New Company').and_return(company)
+        allow(company).to receive(:save).and_return(true)
+
+        post :create, params: { company: { name: 'New Company' } }
+
+        expect(response).to redirect_to(company)
+      end
+    end
+  end
 end
