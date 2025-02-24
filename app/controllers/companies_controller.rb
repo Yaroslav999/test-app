@@ -17,9 +17,9 @@ class CompaniesController < ApplicationController
   def edit; end
 
   def create
-    @company = current_user.companies.new(company_params)
+    @company = CompanyCreator.new(current_user, company_params).create
 
-    if @company.save
+    if @company
       redirect_to companies_path
     else
       render 'new'
