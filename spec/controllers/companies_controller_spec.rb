@@ -68,7 +68,7 @@ RSpec.describe CompaniesController, type: :controller do
 
         post :create, params: { company: { name: 'New Company' } }
 
-        expect(response).to redirect_to(company)
+        expect(response).to redirect_to(companies_path)
       end
     end
   end

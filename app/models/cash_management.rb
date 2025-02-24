@@ -8,6 +8,4 @@ class CashManagement < ApplicationRecord
 
   validates :cash_in_cents, :cash_out_cents, :year, :month, :company, presence: true
   validates_uniqueness_of :company_id, scope: %i[month year]
-
-
 end
