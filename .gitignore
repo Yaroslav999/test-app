@@ -52,3 +52,5 @@ yarn-debug.log*
 
 /public/packs
 /public/uploads
+
+coverage/

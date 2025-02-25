@@ -10,6 +10,7 @@ require 'rspec/rails'
 
 require 'capybara/rspec'
 require 'capybara/rails'
+require 'simplecov'
 
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
@@ -17,7 +18,11 @@ end
 
 Capybara.javascript_driver = :selenium
 
-
+SimpleCov.start 'rails' do
+  add_filter "/spec/"  # Вимикаємо папку з тестами
+  add_filter "/config/"  # Виключаємо файли конфігурації
+  add_filter "/vendor/"  # Виключаємо сторонні бібліотеки
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
