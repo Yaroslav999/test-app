@@ -39,6 +39,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.env
 .idea
 
 # Ignore uploaded files in development
@@ -54,3 +55,4 @@ yarn-debug.log*
 /public/uploads
 
 coverage/
+config/master.key
