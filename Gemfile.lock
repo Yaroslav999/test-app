@@ -113,6 +113,10 @@ GEM
     devise-bootstrap-views (1.1.0)
     diff-lcs (1.6.0)
     docile (1.4.1)
+    dotenv (3.1.7)
+    dotenv-rails (3.1.7)
+      dotenv (= 3.1.7)
+      railties (>= 6.1)
     erubi (1.13.1)
     execjs (2.10.0)
     factory_bot (6.5.1)
@@ -384,6 +388,7 @@ DEPENDENCIES
   country_select
   devise
   devise-bootstrap-views (~> 1.0)
+  dotenv-rails
   factory_bot_rails (~> 6.2)
   faker
   gretel

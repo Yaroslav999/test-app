@@ -58,6 +58,8 @@ gem 'kaminari'
 gem 'bootstrap'
 gem 'jquery-rails'
 
+gem 'dotenv-rails'
+
 # Avoid DDoS attack
 gem 'rack-attack'
 # Reduces boot times through caching; required in config/boot.rb
