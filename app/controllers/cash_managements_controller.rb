@@ -5,6 +5,11 @@ class CashManagementsController < ApplicationController
   before_action :find_cash_management, only: %i[edit update destroy]
   before_action :auth_student!, only: %i[create update destroy]
 
+  def initialize
+    super
+    @cash_management_processor = CashManagementProcessor.new(CashManagementRepository.new)
+  end
+
   def new
     @cash_management = @company.cash_managements.new
   end
@@ -12,18 +17,18 @@ class CashManagementsController < ApplicationController
   def edit; end
 
   def create
-    @cash_management = @company.cash_managements.new(cash_params)
+    @cash_management = @cash_management_processor.create_cash(@company, cash_params)
 
-    if @cash_management.save
-      redirect_to @company
+    if @cash_management
+      redirect_to @company, notice: "Cash management created successfully"
     else
       render 'new'
     end
   end
 
   def update
-    if @cash_management.update(cash_params)
-      redirect_to @company
+    if @cash_management_processor.update_cash(@cash_management, cash_params)
+      redirect_to @company, notice: "Cash management updated successfully"
     else
       render 'edit'
     end
@@ -31,7 +36,6 @@ class CashManagementsController < ApplicationController
 
   def destroy
     @cash_management.destroy
-
     redirect_to @company
   end
 
