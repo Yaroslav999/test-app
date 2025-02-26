@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../config/environment'
+require_relative '../lib/cli/cash_management_cli'
+
+CLI::CashManagementCLI.start(ARGV)
