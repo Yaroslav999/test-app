@@ -64,6 +64,10 @@ gem 'jquery-rails'
 
 gem 'dotenv-rails'
 
+# encryption
+gem 'attr_encrypted'
+
+gem 'pundit'
 # Avoid DDoS attack
 gem 'rack-attack'
 # Reduces boot times through caching; required in config/boot.rb
