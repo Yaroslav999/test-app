@@ -54,6 +54,10 @@ gem 'gretel'
 # pagination
 gem 'kaminari'
 
+# background jobs
+gem 'sidekiq'
+gem 'whenever', require: false
+
 # For views
 gem 'bootstrap'
 gem 'jquery-rails'

@@ -55,7 +55,9 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.extend LoginHelper, type: :controller
   config.include FactoryBot::Syntax::Methods
-
+  config.before(:each, type: :job) do
+    ActiveJob::Base.queue_adapter = :test
+  end
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.

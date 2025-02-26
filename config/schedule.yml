@@ -1,0 +1,4 @@
+update_cash_management:
+  cron: "59 23 L * *"
+  class: "UpdateCashManagementJob"
+  queue: "default"
