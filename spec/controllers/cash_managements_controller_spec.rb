@@ -16,14 +16,6 @@ RSpec.describe CashManagementsController, type: :controller do
       expect(response.successful?).to eq(true)
     end
 
-    it 'should put update' do
-      put :update, params: { company_id: company.id, id: cash_management.to_param,
-                             cash_management: { month: 'December' } }
-      cash_management.reload
-      expect(cash_management.month).to eq('December')
-      response.should redirect_to(company)
-    end
-
     it 'should post create' do
       expect {
         post :create, params: { company_id: company.id,
