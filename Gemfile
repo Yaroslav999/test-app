@@ -68,6 +68,9 @@ gem 'dotenv-rails'
 gem 'attr_encrypted'
 
 gem 'pundit'
+
+gem 'prometheus_exporter'
+
 # Avoid DDoS attack
 gem 'rack-attack'
 # Reduces boot times through caching; required in config/boot.rb

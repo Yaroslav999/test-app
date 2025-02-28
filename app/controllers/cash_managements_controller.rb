@@ -20,7 +20,7 @@ class CashManagementsController < ApplicationController
     @cash_management = @cash_management_processor.create_cash(@company, cash_params)
 
     if @cash_management
-      redirect_to @company, notice: "Cash management created successfully"
+      redirect_to @company, notice: 'Cash management created successfully'
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class CashManagementsController < ApplicationController
 
   def update
     if @cash_management_processor.update_cash(@cash_management, cash_params)
-      redirect_to @company, notice: "Cash management updated successfully"
+      redirect_to @company, notice: 'Cash management updated successfully'
     else
       render 'edit'
     end
