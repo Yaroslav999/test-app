@@ -27,7 +27,7 @@
           %th{scope: 'col'}
           %th{scope: 'col'}
       %tbody
-        - @company.cash_managements.each do |cash|
+        - @cash_managements.each do |cash|
           %tr
             %th{scope: 'row'}= cash.year
             %th= cash.month

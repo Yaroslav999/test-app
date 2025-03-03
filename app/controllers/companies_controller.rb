@@ -16,6 +16,10 @@ class CompaniesController < ApplicationController
 
   def edit; end
 
+  def show
+    @cash_managements = @company.cash_managements.map { |cm| CashManagementDecorator.new(cm) }
+  end
+
   def create
     @company = CompanyCreator.new(current_user, company_params).create
 
