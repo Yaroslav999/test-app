@@ -17,7 +17,9 @@ class CompaniesController < ApplicationController
   def edit; end
 
   def show
-    @cash_managements = @company.cash_managements.map { |cm| CashManagementDecorator.new(cm) }
+    Rails.cache.fetch("company_#{@company.id}_cash_managements", expires_in: 12.hours) do
+      @cash_managements = @company.cash_managements.map { |cm| CashManagementDecorator.new(cm) }
+    end
   end
 
   def create
