@@ -8,6 +8,8 @@ class Company < ApplicationRecord
   belongs_to :user
 
   validates :initial_cash_cents, :name, :country, presence: true
+  validates :country, presence: true
+  validates :initial_cash_currency, inclusion: { in: %w(USD EUR GBP) }
 
   def country_name
     country = ISO3166::Country[self.country]
