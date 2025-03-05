@@ -67,6 +67,11 @@ gem 'dotenv-rails'
 # encryption
 gem 'attr_encrypted'
 
+# strict typing
+gem 'dry-types'
+gem 'dry-schema'
+gem 'dry-validation'
+
 gem 'pundit'
 
 gem 'prometheus_exporter'

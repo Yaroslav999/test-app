@@ -15,6 +15,7 @@ module TestApp
     config.middleware.use Rack::Attack
     config.middleware.use RequestLoggerMiddleware
     config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths += Dir[Rails.root.join('app/contracts')]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

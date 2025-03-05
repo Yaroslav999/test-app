@@ -13,8 +13,8 @@ class CashManagement < ApplicationRecord
   validate :validate_cashflow
 
   def validate_cashflow
-    if cash_in_cents < cash_out_cents
-      errors.add(:cash_in_cents, "should be greater than cash out")
-    end
+    return unless cash_in_cents < cash_out_cents
+
+    errors.add(:cash_in_cents, 'should be greater than cash out')
   end
 end

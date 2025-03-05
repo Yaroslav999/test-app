@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CashManagementDecorator
   def initialize(cash_management)
     @cash_management = cash_management
@@ -7,7 +9,7 @@ class CashManagementDecorator
     value = @cash_management.public_send(method, *args, &block)
 
     if method.to_s.include?('cash')
-      "$#{'%.2f' % value}"
+      "$#{format('%.2f', value)}"
     else
       value
     end

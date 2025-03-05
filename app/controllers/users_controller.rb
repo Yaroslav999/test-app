@@ -4,7 +4,14 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if current_user.update(user_params)
+    result = ::Contracts::UserContract.new.call(user_params.to_h)
+
+    unless result.success?
+      flash.now[:error] = result.errors.to_h
+      return render 'edit'
+    end
+
+    if current_user.update(result.to_h)
       redirect_to companies_path
     else
       render 'edit'
