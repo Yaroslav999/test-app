@@ -8,6 +8,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :companies, dependent: :delete_all
+  validate :valid_email?
+
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  def valid_email?
+    decrypted_email = email_before_type_cast
+    unless decrypted_email.present? && EMAIL_REGEX.match?(decrypted_email)
+      errors.add(:email, "is not a valid email")
+    end
+  end
 
   def full_name
     "#{first_name} #{last_name}"
