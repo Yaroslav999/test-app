@@ -14,9 +14,9 @@ class User < ApplicationRecord
 
   def valid_email?
     decrypted_email = email_before_type_cast
-    unless decrypted_email.present? && EMAIL_REGEX.match?(decrypted_email)
-      errors.add(:email, "is not a valid email")
-    end
+    return if decrypted_email.present? && EMAIL_REGEX.match?(decrypted_email)
+
+    errors.add(:email, 'is not a valid email')
   end
 
   def full_name
