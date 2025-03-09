@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  def index
+    response = Faraday.get('https://jsonplaceholder.typicode.com/users')
+    @external_users = JSON.parse(response.body, symbolize_names: true)
+
+    @users = User.all
+  end
+
   def edit; end
 
   def update

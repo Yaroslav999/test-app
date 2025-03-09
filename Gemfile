@@ -63,6 +63,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 gem 'dotenv-rails'
+gem 'faraday'
 
 # encryption
 gem 'attr_encrypted'
