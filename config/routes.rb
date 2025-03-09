@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :companies do
     resources :cash_managements, except: [:index, :show]
   end
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update, :index]
   root 'companies#index'
 end
