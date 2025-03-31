@@ -10,6 +10,17 @@ class UsersController < ApplicationController
 
   def edit; end
 
+  def create
+    user = UserFactory.create_user(user_params.to_h)
+
+    if user.valid?
+      redirect_to users_path, notice: 'User was successfully created.'
+    else
+      flash.now[:error] = user.errors.full_messages
+      render 'new'
+    end
+  end
+
   def update
     result = ::Contracts::UserContract.new.call(user_params.to_h)
 
@@ -28,6 +39,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email, :role, :password, :password_confirmation)
   end
 end
