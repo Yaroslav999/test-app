@@ -9,4 +9,3 @@ module Contracts
     end
   end
 end
-
